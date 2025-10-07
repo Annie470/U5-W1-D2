@@ -11,9 +11,14 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @ToString
-public class Pizza {
+public class Pizza extends Item {
     private String type;
     private List<Topping> toppings;
     private int calories;
     private double price;
+
+    @Override
+    public double getPrice() {
+        return this.price;
+    }
 }

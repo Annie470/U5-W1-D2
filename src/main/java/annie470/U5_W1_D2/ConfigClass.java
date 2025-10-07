@@ -1,13 +1,9 @@
 package annie470.U5_W1_D2;
 
-import annie470.U5_W1_D2.entities.Drink;
-import annie470.U5_W1_D2.entities.Menu;
-import annie470.U5_W1_D2.entities.Pizza;
-import annie470.U5_W1_D2.entities.Topping;
+import annie470.U5_W1_D2.entities.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -62,6 +58,13 @@ public class ConfigClass {
         List<Topping> toppings = List.of(getCheese(), getTomato(), getOnions(), getSalami(), getHam(), getPineapple());
         return new Menu(drinks, pizzas , toppings);
     }
+
+    //TABLE
+    @Bean(name = "test table")
+    public Tavolo getTavolo(){
+        return new Tavolo(12,4, StatusTable.OCCUPIED);
+    }
+
 
 
 }

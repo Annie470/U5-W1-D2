@@ -9,8 +9,13 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-public class Drink {
+public class Drink extends Item {
     private String type;
     private int calories;
     private double price;
+
+    @Override
+    public double getPrice() {
+        return this.price;
+    }
 }
