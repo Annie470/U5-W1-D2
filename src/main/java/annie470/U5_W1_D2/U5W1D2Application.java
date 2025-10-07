@@ -10,9 +10,6 @@ public class U5W1D2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(U5W1D2Application.class, args);
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(U5W1D2Application.class);
-        Menu menu = ctx.getBean("menu", Menu.class);
-        System.out.println(menu);
 	}
 
 }

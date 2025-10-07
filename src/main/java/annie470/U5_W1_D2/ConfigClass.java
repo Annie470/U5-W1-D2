@@ -1,6 +1,7 @@
 package annie470.U5_W1_D2;
 
 import annie470.U5_W1_D2.entities.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +47,8 @@ public class ConfigClass {
     @Bean(name = "hawaiian pizza")
     public Pizza getHawaiianPizza(){return new Pizza("Hawaiian Pizza", List.of(getCheese(), getTomato(), getHam(), getPineapple()) ,1280, 7.99 );
     };
-    @Bean(name = "margherita pizza")
+    @Bean
+    @Qualifier("margherita pizza")
     public Pizza getMargheritaPizza(){return new Pizza("Margherita Pizza", List.of(getCheese(), getTomato()) ,1020, 4.99 );
     };
 

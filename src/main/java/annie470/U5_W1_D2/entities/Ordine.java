@@ -11,7 +11,6 @@ import java.util.List;
 @ToString
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Component
 @PropertySource("application.properties")
 public class Ordine {
@@ -21,10 +20,16 @@ public class Ordine {
     private List<Item> items;
     @Setter(AccessLevel.NONE)
     private double bill;
-
     @Value("${cover.charge}")
     @Setter(AccessLevel.NONE)
     private int coverCharge;
+
+    public Ordine(Tavolo tavolo, int n, StatusOrder statusOrder, List<Item> items) {
+        this.tavolo = tavolo;
+        this.n = n;
+        this.statusOrder = statusOrder;
+        this.items = items;
+    }
 
     public void prepareBill() {
         double totalPrices = items.stream().mapToDouble(Item::getPrice).sum();
